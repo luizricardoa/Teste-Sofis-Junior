@@ -1,18 +1,4 @@
 ```JS
-// enum Gender {
-//  Male: 'MALE',
-//  Female: 'FEMALE',
-//  Other: 'OTHER'
-// }
-
-// type Person = {
-//  name: string
-//  age: number
-//  gender: Gender
-//  civilStatus: string
-//  childrens: number
-//  team: string
-// }
 
 const getRandomInt = (min, max) => {
   const rand = Math.random() * (max - min)
@@ -56,7 +42,7 @@ const buildFakeTeam = () => {
   const randomNumber = getRandomInt(0, 4)
   const names = ['Vasco da Gama', 'Flamengo', 'Botafogo', 'Fluminense']
 
-  return randomNumber
+  return names[randomNumber]
 }
 
 const generateRandomPerson = (total: number): Person[] => {
@@ -74,13 +60,9 @@ const generateRandomPerson = (total: number): Person[] => {
 
   return arr
 }
-// Get single female person
-// Get marriage woman if more than 3 childrens
-// Get mans that love Vasco da Gama
-// Get children that have children
 
 
-const peopleResearch = generateRandomPerson(10)
+const peopleResearch = generateRandomPerson(30)
 
 const getSinglePerson = (civilStatus: string) => {
 
@@ -106,14 +88,22 @@ const getMariedWomanWithChildrens = () => {
  return married.filter((m) => m.childrens > 3)
 }
 
-// console.log('-------- all data --------', peopleResearch)
+const getManThatLoveVasco = () => {
+ const men = peopleResearch.filter((person) => person.gender.toLowerCase().includes('male'))
+
+const result = men.filter((man) => man.team.toLowerCase().includes('vasco'))
+
+return result
+}
+
+console.log('-------- all data --------', peopleResearch)
 
 // Get single female person
 console.log('Get single female person', getSingleFemalePerson())
-// Get marriage woman if more than 3 childrens
+// // Get married woman if more than 3 childrens
 console.log('Get married woman if more than 3 childrens', getMariedWomanWithChildrens())
 // Get mans that love Vasco da Gama
+console.log('Get mans that love Vasco da Gama', getManThatLoveVasco())
 // Get children that have children
-
 
 ```
