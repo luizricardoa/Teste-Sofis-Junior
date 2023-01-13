@@ -45,7 +45,7 @@ const buildFakeTeam = () => {
   return names[randomNumber]
 }
 
-const generateRandomPerson = (total: number): Person[] => {
+const generateRandomPerson = (total) => {
   const arr = []
   for (let i = 1; i <= total; i += 1) {
     arr.push({
@@ -61,18 +61,8 @@ const generateRandomPerson = (total: number): Person[] => {
   return arr
 }
 
-
+// Generate random people
 const peopleResearch = generateRandomPerson(30)
-
-const getSinglePerson = (civilStatus: string) => {
-
- return peopleResearch.filter((person) => person.civilStatus === civilStatus)
-}
-
-const getPersonByGender = (gender: string) => {
-
- return peopleResearch.filter((person) => person.gender === gender)
-}
 
 const getSingleFemalePerson = () => {
   const people = peopleResearch.filter((person) => person.civilStatus.toLowerCase().includes('single') && person.gender.toLowerCase().includes('female'))
