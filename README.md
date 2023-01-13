@@ -98,12 +98,22 @@ const getSingleFemalePerson = () => {
  return people
 }
 
+const getMariedWomanWithChildrens = () => {
+  const women = peopleResearch.filter((person) => person.gender.toLowerCase().includes('female'))
+
+  const married = women.filter((woman) => woman.civilStatus.toLowerCase().includes('married'))
+
+ return married.filter((m) => m.childrens > 3)
+}
+
 // console.log('-------- all data --------', peopleResearch)
 
 // Get single female person
 console.log('Get single female person', getSingleFemalePerson())
 // Get marriage woman if more than 3 childrens
+console.log('Get married woman if more than 3 childrens', getMariedWomanWithChildrens())
 // Get mans that love Vasco da Gama
 // Get children that have children
+
 
 ```
